@@ -10,19 +10,18 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 class MainActivity : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
-    private var imageUrl: String = ""
+    private var imageUrl: String = "https://raw.githubusercontent.com/Neonchik4/HW-QR-Code/refs/heads/master/app/src/main/res/drawable/images/qr-code-image.jpg"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         imageView = findViewById(R.id.imageView)
-        imageUrl = "https://raw.githubusercontent.com/Neonchik4/HW-QR-Code/refs/heads/master/app/src/main/res/drawable/images/qr-code-image.jpg"
         Glide.with(this)
             .asBitmap()
             .load(imageUrl)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)    // кэшировать везде (память и диск)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(imageView)
-            .clearOnDetach()                              // очищать запрос при отсоединении Activity
+            .clearOnDetach()
     }
 }
